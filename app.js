@@ -17,7 +17,8 @@ app.get("/", (req, res) => res.send("Books API is running"));
 
 app.get("/api/books", (req, res) => {
     console.log("i am getting all the books")
-    res.json(books)});  //.json( {an object can be put here like books was} )
+    res.json(books)      //.json( {an object can be put here like books was} )
+}); 
 
 app.post("/api/books", (req, res) => {
     console.log('REQ BODY>>>>>>' , req.body)
@@ -42,14 +43,14 @@ app.post("/api/books", (req, res) => {
 
 app.patch('/api/books/:bookId' , (req,res)=>{
     const id = Number(req.params.bookId)
-    const { title } = req.body
+    const { title, author } = req.body
     
     const mybook = null
     books = books.map((book) => {
         if (book.id === id){
-            return {...book, title: name} //dont forget to us {} since its an object
+            return {...book, title: title, author: author} //dont forget to us {} since its an object
         }
-        return book
+        return books
     })
 
     if (!mybook) {
