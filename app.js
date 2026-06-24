@@ -21,12 +21,12 @@ app.get("/api/books", (req, res) => {
 
 app.post("/api/books", (req, res) => {
     console.log('REQ BODY>>>>>>' , req.body)
-    // can do const {title, author, genre} = req.body
+    const {title, author, genre} = req.body
     const newBook = {
         id : nextId,
-        title: '',
-        author: '',
-        genre: '',
+        title: title,
+        author: author,
+        genre: genre,
         available : false
     }
     nextId++
